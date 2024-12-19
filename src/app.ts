@@ -1,6 +1,10 @@
 import express from "express";
 import cors from "cors";
 import { YoutubeTranscript } from "youtube-transcript";
+import { main } from "./utils.js";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
@@ -14,10 +18,11 @@ app.get("/", (_req, res) => {
 app.get("/hono/youtube-transcript/:videoId", async (req, res) => {
   const { videoId } = req.params;
   try {
-    const transcript = await getTranscript(videoId);
+    // const transcript = await getTranscript(videoId);
+    const transcript = await main(videoId);
     res.json({
       videoId,
-      transcript,
+      transcript: transcript,
     });
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch transcript" });
