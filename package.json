@@ -5,7 +5,11 @@
     "deploy": "wrangler deploy --minify"
   },
   "dependencies": {
+    "@googleapis/youtube": "^20.0.0",
+    "axios": "^1.7.9",
+    "buffer": "^6.0.3",
     "hono": "^4.6.14",
+    "protobufjs": "^7.4.0",
     "youtube-transcript": "^1.2.1"
   },
   "devDependencies": {
