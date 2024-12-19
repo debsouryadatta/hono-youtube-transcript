@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8787
 
 # Command to run the app
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
