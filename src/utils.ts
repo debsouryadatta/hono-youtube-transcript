@@ -135,6 +135,7 @@ async function getSubtitles({ videoId, trackKind, language }) {
     );
   }
 
+  let subtitles = "";
   const output = initialSegments.map((segment) => {
     const line =
       segment.transcriptSectionHeaderRenderer ||
@@ -144,14 +145,15 @@ async function getSubtitles({ videoId, trackKind, language }) {
 
     const text = extractText(snippet);
 
-    return {
-      start: parseInt(startMs) / 1000,
-      dur: (parseInt(endMs) - parseInt(startMs)) / 1000,
-      text,
-    };
+    // return {
+    //   start: parseInt(startMs) / 1000,
+    //   dur: (parseInt(endMs) - parseInt(startMs)) / 1000,
+    //   text,
+    // };
+    subtitles += text + ". ";
   });
 
-  return output;
+  return subtitles;
 }
 
 //////////////

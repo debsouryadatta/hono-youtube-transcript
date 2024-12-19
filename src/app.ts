@@ -20,10 +20,7 @@ app.get("/hono/youtube-transcript/:videoId", async (req, res) => {
   try {
     // const transcript = await getTranscript(videoId);
     const transcript = await main(videoId);
-    res.json({
-      videoId,
-      transcript: transcript,
-    });
+    res.send(transcript);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch transcript" });
   }
